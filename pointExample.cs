@@ -23,6 +23,7 @@ public class Point : DisplaysData{
 		return point;
 	}
 
+	//Obeys Interface
 	public string getDataString(){
 
 		return this.x + ", " + this.y;
