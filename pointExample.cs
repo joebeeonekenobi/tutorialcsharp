@@ -1,5 +1,11 @@
 using System;
 
+//Interface Example
+public interface DisplaysData{
+
+	string getDataString();
+}
+
 //Operator Overloading Example
 public class Point{
 
