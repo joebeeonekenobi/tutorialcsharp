@@ -7,7 +7,7 @@ public interface DisplaysData{
 }
 
 //Operator Overloading Example
-public class Point{
+public class Point : DisplaysData{
 
 	public int x;
 	public int y;
