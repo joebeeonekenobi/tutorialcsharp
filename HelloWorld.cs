@@ -7,4 +7,3 @@ public class HelloWorld{
 		Console.WriteLine("Hello World, this is me teaching myself c# - and github as well!!!");
 	}
 }
-
