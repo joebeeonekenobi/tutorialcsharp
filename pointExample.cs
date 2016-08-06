@@ -46,6 +46,26 @@ public class Point : DisplaysData{
 
 	public int x;
 	public int y;
+	public bool warningRaised = false;
+	private string hiddenName; //Cannot be accessed directly
+
+	//A way to access the hidden name
+	public string name{
+		get{
+			//This method ensures that hiddenName cannot be accessed and returned. It is write only, unless another exposed method returns it somehow!
+
+			Console.WriteLine("Sorry, name is hidden.");
+			return null;
+		}
+		set{
+			//This method CANNOT set a value to itsself (name) or an infinite loop will occur.
+
+			Console.WriteLine("WARNING, NAME OF POINT IS BEING OVERWRITTEN to : "+value);
+			hiddenName = value;
+			//value is essentially reserved in a set accessor, and it will raise an error to declare it.
+			//It inherently contains the value that is passed to it from the setting of the variable.
+		}
+	}
 
 	public Point(int x, int y){
 
@@ -116,6 +136,9 @@ public class Point : DisplaysData{
 		Point pointA = new Point(5, 10);
 		Point pointB = new Point(1, 2);
 		Point pointC = pointA + pointB;
+		pointC.name = "joejoe"; //This will hit the set accessor, rather than directly set the value.
+
+		Console.WriteLine(pointC.name);
 
 		//Can now get the attribute tags in program
 		object[] tags = Point.getTags();
